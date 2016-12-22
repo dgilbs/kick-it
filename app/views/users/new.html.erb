@@ -15,6 +15,10 @@
     <%= f.label :position%>
     <%= f.select :position, ["Forward", "Midfielder", "Defender", "Goalkeeper"]%>
     <br><br>
+    <%= f.label :bio %>
+    <%= f.text_area :bio%>
+
+    <br><br>
     <%= f.submit %>
 
   <%end%>
