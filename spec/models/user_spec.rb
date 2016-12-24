@@ -36,4 +36,16 @@ describe 'User' do
     expect(user1.same_skill_level_as(user2)).to be
   end
 
+  it 'can group players by skill_level' do
+    user1 = User.create(skill_level: "Advanced")
+    user2 = User.create(skill_level: "Beginner")
+    user3 = User.create(skill_level: "Intermediate")
+    expect(User.advanced_players).to include(user1)
+    expect(User.advanced_players).to_not include(user2)
+    expect(User.intermediate_players).to include(user3)
+    expect(User.intermediate_players).to_not include(user1)
+    expect(User.beginner_players).to include(user2)
+    expect(User.beginner_players).to_not include(user1)
+  end
+
 end
