@@ -48,4 +48,27 @@ describe 'User' do
     expect(User.beginner_players).to_not include(user1)
   end
 
+  it 'can join a team' do 
+    user1 = User.create()
+    team1 = Team.create()
+    team2 = Team.create
+    user1.jointeam(team1)
+    expect(user1.teams).to include(team1)
+    expect(user1.teams).to_not include(team2)
+  end
+    
+  it 'can know who his/her teammates are' do
+    user1 = User.create()
+    user2 = User.create()
+    user3 = User.create()
+    team = Team.create()
+    user1.jointeam(team)
+    user2.jointeam(team)
+    expect(user1.teammates).to include(user2)
+    expect(user2.teammates).to include(user1)
+    expect(user1.teammates).to_not include(user3)
+    expect(user2.teammates).to_not include(user3)
+    expect(user1.teammates).to_not include(user1)
+  end
+
 end

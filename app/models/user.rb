@@ -15,6 +15,8 @@
 
 
 class User < ActiveRecord::Base
+  has_many :user_teams
+  has_many :teams, through: :user_teams
 
 
   def more_skilled_than(user)
@@ -45,6 +47,16 @@ class User < ActiveRecord::Base
 
   def self.beginner_players
     self.where(skill_level:"Beginner")
+  end
+
+  def jointeam(team)
+    self.teams.push(team)
+  end
+
+  def teammates
+    arr = self.teams.map{|t| t.users}.flatten
+    arr = arr.uniq
+    arr.select{|player| player != self}
   end
 
   
