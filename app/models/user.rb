@@ -54,7 +54,8 @@ class User < ActiveRecord::Base
   end
 
   def teammates
-    arr = self.teams.map{|t| t.users}.flatten
+    arr = self.teams.map{|t| t.roster}.flatten
+    byebug
     arr = arr.uniq
     arr.select{|player| player != self}
   end
