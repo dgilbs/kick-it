@@ -20,6 +20,8 @@
   Team.create(name: "Rooney Tunes", league_type: "Coed")
   Team.create(name: "Bale of Hay", league_type: "Coed")
   Team.create(name: "Playing Footsie", league_type: "Coed")
+  Team.create(name: "USWNT", league_type: "Women's")
+  Team.create(name: "USMNT", league_type: "Men's")
 
   UserTeam.create(user_id: 1, team_id: 1)
   UserTeam.create(user_id: 1, team_id: 2)
