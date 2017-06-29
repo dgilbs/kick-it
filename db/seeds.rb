@@ -40,3 +40,8 @@
   UserTeam.create(user_id: 8, team_id: 2)
   UserTeam.create(user_id: 8, team_id: 1)
 
+  Position.create(name:"Forward")
+  Position.create(name:"Midfielder")
+  Position.create(name:"Defender")
+  Position.create(name: "Goalkeeper")
+
